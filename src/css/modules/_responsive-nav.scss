@@ -1,0 +1,208 @@
+/** ================ 
+** - Responsive Nav -
+** ================ 
+**
+** Navbar Clicks
+*/
+.card-3 {
+  overflow: hidden;
+}
+
+.nav-wrapper {
+  background: $main-yellow;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 5%;
+  text-align: center;
+
+  & .nav-click {
+    position: relative;
+    transition: $main-transition;
+    cursor: pointer;
+
+    & h2 {
+      display: inline-block;
+      margin: 15px auto !important;
+    }
+
+    & #menu-bars {
+      display: none;
+    }
+
+    @include break(1024px) {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      & #menu-bars {
+        position: absolute;
+        top: .2rem;
+        width: 50px;
+        height: 50px;
+        background: pink;
+        color: $main-pink;
+        font-size: 30px;
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        cursor: pointer;
+
+        & i {
+          margin: 0 auto;
+          display: inline-block;
+          width: 30px;
+          /* height: 10px; */
+          background: $main-bg;
+          border: 1px solid $main-dark;
+          position: relative;
+
+          &:after {
+            top: 7px;
+            content: '';
+            display: block;
+            width: 28px;
+            border: 1px solid $main-green;
+            position: absolute;
+            left: -1px;
+            transition: $main-transition;
+          }
+
+
+          &:before {
+            top: -9px;
+            content: '';
+            display: block;
+            width: 28px;
+            border: 1px solid $main-pink;
+            position: absolute;
+            left: -1px;
+          }
+
+          &.active {
+            transform: rotate(45deg);
+          }
+
+        }
+
+        @include break(1024px) {
+          position: absolute;
+          display: block;
+          right: 0;
+        }
+
+
+      }
+    }
+  }
+
+  #menu-bars.active i:after {
+    transform: translate(0, -8px) rotate(-90deg);
+  }
+
+  #menu-bars.active i:before {
+    border-color: transparent;
+  }
+
+  @include break(1024px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+
+/**
+** Navbar Dropdown
+*/
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  margin: 0 2%;
+  width: 400px;
+  background: $main-blue;
+
+  & li {
+    list-style: none;
+    height: 2.2rem;
+    width: 100%;
+    text-align: center;
+    display: table;
+    opacity: 1;
+    transition: $main-transition;
+    margin: 0 1%;
+    align-self: center;
+
+    a {
+      text-decoration: none;
+      vertical-align: middle;
+      display: table-cell;
+      font-size: larger;
+
+
+      &:hover {
+        color: $main-green;
+      }
+    }
+
+    &:hover {
+      background: lighten($color: $main-yellow, $amount: 10%);
+      border-radius: 10px;
+      font-size: larger;
+    }
+  }
+
+  @include break(1024px) {
+    height: 100%;
+    background: $main-yellow;
+    transition: $main-transition;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+
+
+    & li {
+      list-style: none;
+      height: 2.1rem;
+      width: 100%;
+      text-align: center;
+      display: table;
+      transform: translateY(-5px);
+      transition: $main-transition;
+
+      a {
+        text-decoration: none;
+        vertical-align: middle;
+        display: table-cell;
+        font-size: larger;
+
+        &:hover {
+          color: $main-green;
+        }
+      }
+
+      &:hover {
+        background: lighten($color: $main-yellow, $amount: 10%);
+        border-radius: 10px;
+        font-size: larger;
+      }
+    }
+
+    &-active {
+      height: 400px;
+    }
+  }
+
+}
+
+
+
+
+/*End of Navbar */

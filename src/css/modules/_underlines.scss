@@ -1,0 +1,156 @@
+/** ==================== 
+** - Underline Effects -
+** ===================== 
+**
+**Underline-1
+*/
+.card-5 {
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.underline-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: $main-title-sm;
+}
+
+.underline-1,
+.underline-2,
+.underline-4,
+.underline-3 {
+  position: relative;
+  cursor: pointer;
+
+  & a {
+    text-decoration: none;
+
+    & h1 {
+      @include text-gradients($main-pink, $main-blue);
+    }
+
+    & h1:hover {
+      background: linear-gradient(to bottom, $main-blue 99%, $main-pink 100%);
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -moz-text-fill-color: transparent;
+    }
+  }
+}
+
+.underline-hover {
+  margin: 0 auto;
+  width: 30px;
+  height: 10px;
+  background: $main-pink;
+  transition: $main-transition;
+}
+
+.underline-1>a:hover+.underline-hover {
+  background: $main-blue;
+  width: 100%;
+}
+
+
+
+
+/* Underline-2 */
+.underline-2 {
+  height: 40px;
+  box-sizing: border-box;
+
+  & h1 {
+    @include text-gradients(lighten($main-green, 5%), $main-pink);
+  }
+
+  &:hover h1 {
+    background: linear-gradient(to bottom, $main-green 99%, $main-pink 100%);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+  }
+
+  &:hover .border-bottom {
+    background: linear-gradient(to top, $main-green, $main-bg);
+    height: 10px;
+    transform: translateY(-5px);
+  }
+}
+
+.border-bottom {
+  width: 100%;
+  height: 0px;
+  background: $main-green;
+  transition: $main-transition;
+  transform: translateY(10px);
+  box-shadow: 0 5px 5px 2px rgba($main-green, .01)
+}
+
+
+/* Underline-3 */
+
+.underline-3 {
+
+  h1 {
+    @include text-gradients(darken($main-yellow, 5%), lighten($main-green, 5%));
+  }
+
+  &:hover h1 {
+    background: linear-gradient(to bottom, $main-green 99%, $main-green 100%);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+  }
+
+  &:before {
+    content: "";
+    height: 0px;
+    width: 100%;
+    background: $main-yellow;
+    position: absolute;
+    transition: $main-transition;
+    z-index: -1;
+  }
+}
+
+.underline-3:hover:before {
+  height: 45px;
+}
+
+/* Underline-4 */
+
+.underline-4 {
+  overflow: hidden;
+
+  & h2 {
+    color: $main-db;
+  }
+
+  &:hover:after {
+    transform: translateX(0px);
+
+  }
+
+  &:after {
+    content: "";
+    height: 15px;
+    width: 280px;
+    transform: translateX(-50px);
+    background: linear-gradient(to right, $main-blue 0%, $main-pink 66%, $main-green 75%, $main-yellow 85%);
+    bottom: 0px;
+    position: absolute;
+    transition: $main-transition;
+    z-index: -1;
+  }
+}
+
+/*End of Underline Effects */
+
